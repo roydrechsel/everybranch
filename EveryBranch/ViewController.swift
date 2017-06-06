@@ -77,6 +77,12 @@ class ViewController: UIViewController {
             orderno = stagingOrderno
             environmentLabel.text = "Staging"
         }
+        
+        productInfoButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        autoReorderButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        appOrderButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        orderHistoryDetailsButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        appLaunchButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
     }
     
     

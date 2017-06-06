@@ -24,41 +24,37 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXj-R0-h2U">
                                 <rect key="frame" x="111" y="265" width="152" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <state key="normal" title="Product Info"/>
                                 <connections>
                                     <action selector="viewProductButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mlR-G8-6Ov"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feh-jX-1ob">
-                                <rect key="frame" x="111" y="309" width="152" height="30"/>
+                                <rect key="frame" x="111" y="318" width="152" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <state key="normal" title="Auto-Reorder"/>
                                 <connections>
                                     <action selector="autoReorderButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yNq-eX-TfJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jr-2c-Tgu">
-                                <rect key="frame" x="111" y="354" width="152" height="30"/>
+                                <rect key="frame" x="111" y="372" width="152" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <state key="normal" title="App Order"/>
                                 <connections>
                                     <action selector="appOrderButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CRf-JV-9D6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moO-R8-JeR">
-                                <rect key="frame" x="111" y="400" width="152" height="30"/>
+                                <rect key="frame" x="105" y="428" width="164" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <state key="normal" title="Order History Details"/>
                                 <connections>
                                     <action selector="orderHistoryDetailsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eq9-8x-r4E"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0p-gs-MTP">
-                                <rect key="frame" x="111" y="445" width="152" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="App Launch"/>
-                                <connections>
-                                    <action selector="appLaunchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wG4-OD-ki4"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1800contacts" translatesAutoresizingMaskIntoConstraints="NO" id="Ki9-42-uPT">
@@ -143,10 +139,14 @@
                                 <color key="textColor" red="0.17977461780000001" green="0.45816377390000002" blue="0.82749100129999997" alpha="0.77892287230000001" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evl-x9-9Ub">
-                                <rect key="frame" x="164" y="517" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0p-gs-MTP">
+                                <rect key="frame" x="111" y="480" width="152" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="App Launch"/>
+                                <connections>
+                                    <action selector="appLaunchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wG4-OD-ki4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
