@@ -30,30 +30,50 @@ class ViewController: UIViewController {
     let branchURL = "http://link.1800contacts.com/"
     var promoParams: String = ""
     var autoLoginParam: String = ""
-    var ordernoParam: String = ""
+    var orderno: String = ""
+
+    
     var badToken: String = "applaunch?token=garbagegarbagegarbage"
+    
     var productionToken: String = "&token=6ABF8651-AB21-41C9-8EA4-C1D00CC78DE3"
     var productionCryptID: String = "&cryptid=B%2fP8J0RJE0WihD%2bRJ%2f6xSQIzVBjUXJ97eXBBCVEV1octB5dYjI%2f6WGoB406VXEmvk4bz0Waj5lAcGsAGI%2be%2fiE8mXx1zHpI1Kp3dPzKRm3UV6GHlcSX%2bBb20XlXbp9gjG4XPhRUJ%2bxXUgHJapQDj0d5yiK4QVsLvWF0qeKQng17uHz29At47jDVF9U7O6ayPRVhHu5qHXQgPpGhOrHA62IQa3a221P%2fyoTlUVDHaqYEhpUwW4qdPI5qrlh3JdBZRmd1BgQ%2btnVtbayJazv01Xi61AZrAFVs2hzkJ5PFLAcnYPJkcR%2bDckPqh0fQdeCg3hrTtWXUIWtJNWVIz2rdsWQ%3d%3d"
+    var productionOrderno: String = "&orderno=0089840229"
+
+    
     var stagingToken: String = "&token=ab83a499-c631-437e-bfe1-7c6904405b58"
     var stagingCryptID: String = "&cryptid=lkt3BfeydKMRCBC4rK0gkhq4RmAP7EEfspAYx1pxie931dAmZt0pmQxyZxlZwcLv6AemQP0pi%2f%2bYtZ67GuQswqw6TOOxqmx2uy5lo7AYAUum%2bg3BAWuEXijNbygIrnNsff6rohE6f9nIaehlZlzmnH9x6LTPhR9fyZkJUjdsy8Z%2bk6aKHxwNtC9ICJx9zU7IwRJQw4N64C1j4D23EK7gc4lzozAPAWm%2bg9iFW1nhaus8JIqGHdAKmeJRrS2TbVoIUi6T3ZK%2bNzCtFvgsINJYtZQLXmn08bFXyNFXepICZFKpZ6K2YCh5ScPL2TzED0M%2bs2i67f6aj%2bcwk%2fWXPV8Qag%3d%3d"
-    var productionOrderno: String = "&orderno=0089840229"
     var stagingOrderno: String = "&orderno=0030299062"
-    var token: String = ""
-    var cryptID: String = ""
-    var orderno: String = ""
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        environmentSwitchTapped(environmentSwitch.isOn)
+        cryptidTokenSwitchTapped(cryptidTokenSwitch.isOn)
+        ordernoSwitchTapped(ordernoSwitch.isOn)
+        promoSwitchTapped(promoSwitch.isOn)
+        
+    }
     
     @IBAction func environmentSwitchTapped(_ sender: Any) {
         
-        if environmentSwitch.isOn {
-            token = productionToken
-            cryptID = productionCryptID
+        if environmentSwitch.isOn && cryptidTokenSwitch.isOn {
+            autoLoginParam = productionToken
             orderno = productionOrderno
             environmentLabel.text = "Production"
             
+        } else if environmentSwitch.isOn && !cryptidTokenSwitch.isOn {
+            autoLoginParam = productionCryptID
+            orderno = productionOrderno
+            environmentLabel.text = "Production"
+            
+        } else if !environmentSwitch.isOn && cryptidTokenSwitch.isOn {
+            autoLoginParam = stagingToken
+            orderno = stagingOrderno
+            environmentLabel.text = "Staging"
+            
         } else {
-            token = stagingToken
-            cryptID = stagingCryptID
+            autoLoginParam = stagingCryptID
             orderno = stagingOrderno
             environmentLabel.text = "Staging"
         }
@@ -62,24 +82,38 @@ class ViewController: UIViewController {
     
     @IBAction func cryptidTokenSwitchTapped(_ sender: Any) {
         
-        if cryptidTokenSwitch.isOn {
-            autoLoginParam = token
+        if cryptidTokenSwitch.isOn && environmentSwitch.isOn {
+            autoLoginParam = productionToken
+            
             cryptidTokenLabel.text = "Token"
             
-        } else {
-            autoLoginParam = cryptID
+        } else if cryptidTokenSwitch.isOn && !environmentSwitch.isOn {
+            autoLoginParam = stagingToken
+            cryptidTokenLabel.text = "Token"
+            
+        } else if !cryptidTokenSwitch.isOn && environmentSwitch.isOn {
+            autoLoginParam = productionCryptID
             cryptidTokenLabel.text = "CryptID"
+            
+        } else {
+            autoLoginParam = stagingCryptID
+            cryptidTokenLabel.text = "CryptID"
+            
         }
     }
     
     @IBAction func ordernoSwitchTapped(_ sender: Any) {
         
-        if ordernoSwitch.isOn {
-            ordernoParam = orderno
+        if ordernoSwitch.isOn && environmentSwitch.isOn {
+            orderno = productionOrderno
+            ordernoLabel.text = "Valid Orderno"
+            
+        } else if ordernoSwitch.isOn && !environmentSwitch.isOn {
+            orderno = stagingOrderno
             ordernoLabel.text = "Valid Orderno"
             
         } else {
-            ordernoParam = "&orderno=00"
+            orderno = "&orderno=00"
             ordernoLabel.text = "Invalid Orderno"
         }
     }
@@ -120,7 +154,10 @@ class ViewController: UIViewController {
     
     @IBAction func appOrderButtonTapped(_ sender: Any) {
         
-        if let url = NSURL(string: "\(branchURL)apporder?promolaunchtext=You+tapped+the+App+Order+link%21\(promoParams)\(ordernoParam)\(autoLoginParam)") {
+        let vc = ViewController()
+        vc.reloadInputViews()
+        
+        if let url = NSURL(string: "\(branchURL)apporder?promolaunchtext=You+tapped+the+App+Order+link%21\(promoParams)\(orderno)\(autoLoginParam)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
@@ -130,7 +167,7 @@ class ViewController: UIViewController {
         
     @IBAction func orderHistoryDetailsButtonTapped(_ sender: Any) {
         
-        if let url = NSURL(string: "\(branchURL)vieworderhistorydetails?promolaunchtext=You+tapped+the+Order+History+Details+link%21\(promoParams)\(ordernoParam)\(autoLoginParam)") {
+        if let url = NSURL(string: "\(branchURL)vieworderhistorydetails?promolaunchtext=You+tapped+the+Order+History+Details+link%21\(promoParams)\(orderno)\(autoLoginParam)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
@@ -155,23 +192,6 @@ class ViewController: UIViewController {
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        cryptidTokenSwitchTapped(cryptidTokenSwitch.isOn)
-        ordernoSwitchTapped(ordernoSwitch.isOn)
-        promoSwitchTapped(promoSwitch.isOn)
-        environmentSwitchTapped(environmentSwitch.isOn)
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
-
 
 }
 
