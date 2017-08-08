@@ -53,7 +53,31 @@ class ViewController: UIViewController {
         ordernoSwitchTapped(ordernoSwitch.isOn)
         promoSwitchTapped(promoSwitch.isOn)
         
+        //self.refreshView()
+        
     }
+    
+//    func refreshView() {
+//        
+//        environmentSwitchTapped(environmentSwitch.isOn)
+//        cryptidTokenSwitchTapped(cryptidTokenSwitch.isOn)
+//        ordernoSwitchTapped(ordernoSwitch.isOn)
+//        promoSwitchTapped(promoSwitch.isOn)
+//    }
+    
+    
+//    @IBAction func resetButtonTapped(_ sender: Any) {
+//        
+//        environmentSwitchTapped(environmentSwitch.isOn)
+//        cryptidTokenSwitchTapped(cryptidTokenSwitch.isOn)
+//        ordernoSwitchTapped(ordernoSwitch.isOn)
+//        promoSwitchTapped(promoSwitch.isOn)
+//        
+//        self.refreshView()
+//        
+//    }
+    
+    
     
     @IBAction func environmentSwitchTapped(_ sender: Any) {
         
@@ -83,6 +107,10 @@ class ViewController: UIViewController {
         appOrderButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
         orderHistoryDetailsButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
         appLaunchButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        
+        cryptidTokenSwitchTapped(cryptidTokenSwitch.isOn)
+        ordernoSwitchTapped(ordernoSwitch.isOn)
+        promoSwitchTapped(promoSwitch.isOn)
     }
     
     
@@ -176,6 +204,7 @@ class ViewController: UIViewController {
         if let url = NSURL(string: "\(branchURL)vieworderhistorydetails?promolaunchtext=You+tapped+the+Order+History+Details+link%21\(promoParams)\(orderno)\(autoLoginParam)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            var shareableURL = url
         }
         
         orderHistoryDetailsButton.setTitleColor(UIColor.green, for: UIControlState.normal)
