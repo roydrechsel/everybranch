@@ -19,6 +19,8 @@
 		549AD3681F030E9500A5ED95 /* ProductionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AD3671F030E9500A5ED95 /* ProductionController.swift */; };
 		54A2B7C61F3286EC00D07CFF /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A2B7C41F3286EC00D07CFF /* SSRadioButton.swift */; };
 		54A2B7C71F3286EC00D07CFF /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A2B7C51F3286EC00D07CFF /* SSRadioButtonsController.swift */; };
+		54A2B7C91F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A2B7C81F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift */; };
+		54A2B7CB1F3A7B2700D07CFF /* SongRightTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A2B7CA1F3A7B2700D07CFF /* SongRightTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		549AD3671F030E9500A5ED95 /* ProductionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionController.swift; sourceTree = "<group>"; };
 		54A2B7C41F3286EC00D07CFF /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButton.swift; path = "../../../Downloads/SSRadioButtonsController-master/SSRadioButtonController/SSRadioButton.swift"; sourceTree = "<group>"; };
 		54A2B7C51F3286EC00D07CFF /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButtonsController.swift; path = "../../../Downloads/SSRadioButtonsController-master/SSRadioButtonController/SSRadioButtonsController.swift"; sourceTree = "<group>"; };
+		54A2B7C81F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollingTabBarUtils.swift; path = "../../DevMountain/iOSScrollingTabBarAnimation-master/ScrollingTabBarDemo/ScrollingTabBarUtils.swift"; sourceTree = "<group>"; };
+		54A2B7CA1F3A7B2700D07CFF /* SongRightTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongRightTabBarController.swift; path = ../../DevMountain/SongRight/SongRightTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 				542AC3B81ED4EC0E00FFE329 /* EnvironmentController.swift */,
 				54A2B7C41F3286EC00D07CFF /* SSRadioButton.swift */,
 				54A2B7C51F3286EC00D07CFF /* SSRadioButtonsController.swift */,
+				54A2B7C81F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift */,
+				54A2B7CA1F3A7B2700D07CFF /* SongRightTabBarController.swift */,
 			);
 			path = EveryBranch;
 			sourceTree = "<group>";
@@ -231,11 +237,13 @@
 				549AD3681F030E9500A5ED95 /* ProductionController.swift in Sources */,
 				54A2B7C71F3286EC00D07CFF /* SSRadioButtonsController.swift in Sources */,
 				546ABB981EC3622700C82BA4 /* Params.swift in Sources */,
+				54A2B7C91F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift in Sources */,
 				54A2B7C61F3286EC00D07CFF /* SSRadioButton.swift in Sources */,
 				543487581EA0341F002D6685 /* ViewController.swift in Sources */,
 				543487561EA0341F002D6685 /* AppDelegate.swift in Sources */,
 				542AC3B91ED4EC0E00FFE329 /* EnvironmentController.swift in Sources */,
 				549AD3661F030E8C00A5ED95 /* StagingController.swift in Sources */,
+				54A2B7CB1F3A7B2700D07CFF /* SongRightTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

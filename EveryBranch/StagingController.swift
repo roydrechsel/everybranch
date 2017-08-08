@@ -17,22 +17,12 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
     @IBOutlet weak var launchButton: UIButton!
     @IBOutlet weak var invisibleLabel: UILabel!
     
-    @IBOutlet weak var stagingProductInfoButton: UIButton!
-    @IBOutlet weak var stagingAutoReorderButton: UIButton!
-    @IBOutlet weak var stagingAppOrderButton: UIButton!
-    @IBOutlet weak var stagingOrderHistoryDetailsButton: UIButton!
-    @IBOutlet weak var stagingAppLaunchButton: UIButton!
-    
     @IBOutlet weak var stagingPromoOnButton: UIButton!
     @IBOutlet weak var stagingPromoOffButton: UIButton!
     @IBOutlet weak var stagingValidOrdernoButton: UIButton!
     @IBOutlet weak var stagingInvalidOrdernoButton: UIButton!
     @IBOutlet weak var stagingCryptidButton: UIButton!
     @IBOutlet weak var stagingTokenButton: UIButton!
-    
-    @IBOutlet weak var stagingPromoLabel: UILabel!
-    @IBOutlet weak var stagingOrdernoLabel: UILabel!
-    @IBOutlet weak var stagingCryptidTokenLabel: UILabel!
     
     var radioButtonController: SSRadioButtonsController?
     var stagingRadioPromoButtonController: SSRadioButtonsController?
@@ -89,37 +79,31 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
     @IBAction func stagingPromoOnButtonTapped(_ sender: Any) {
         
         promoParams = "&promoid=testPromo&promoisreusable=true&promoexpdate=1586844727000&promoexpseconds=0"
-        stagingPromoLabel.text = "Valid Promotion +"
     }
     
     @IBAction func stagingPromoOffButtonTapped(_ sender: Any) {
         
         promoParams = ""
-        stagingPromoLabel.text = "No Promotion +"
     }
     
     @IBAction func stagingValidOrdernoButtonTapped(_ sender: Any) {
         
         orderno = stagingOrderno
-        stagingOrdernoLabel.text = "Valid Orderno     +"
     }
     
     @IBAction func stagingInvalidOrdernoButtonTapped(_ sender: Any) {
         
         orderno = stagingBadOrderno
-        stagingOrdernoLabel.text = "Invalid Orderno   +"
     }
     
     @IBAction func stagingCryptidButtonTapped(_ sender: Any) {
         
         stagingAutoLoginParam = stagingCryptID
-        stagingCryptidTokenLabel.text = "Cryptid"
     }
     
     @IBAction func stagingTokenButtonTapped(_ sender: Any) {
         
         stagingAutoLoginParam = stagingToken
-        stagingCryptidTokenLabel.text = "Token"
     }
     
     
@@ -128,45 +112,41 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
         
         if invisibleLabel.text == "Product Info" {
             
-            stagingProductInfoButtonTapped(stagingProductInfoButton)
+            stagingProductInfoButtonTapped((Any).self)
         } else {
             
             if invisibleLabel.text == "Auto-Reorder" {
                 
-                stagingAutoReorderButtonTapped(stagingAutoReorderButton)
+                stagingAutoReorderButtonTapped((Any).self)
             } else {
                 
                 if invisibleLabel.text == "App Order" {
                     
-                    stagingAppOrderButtonTapped(stagingAppOrderButton)
+                    stagingAppOrderButtonTapped((Any).self)
                 } else {
                     
                     if invisibleLabel.text == "Order History Details" {
                         
-                        stagingOrderHistoryDetailsButtonTapped(stagingOrderHistoryDetailsButton)
+                        stagingOrderHistoryDetailsButtonTapped((Any).self)
                     } else {
                         
                         if invisibleLabel.text == "App Launch" {
                             
-                            stagingAppLaunchButtonTapped(stagingAppLaunchButton)
+                            stagingAppLaunchButtonTapped((Any).self)
                         }
                     }
                 }
             }
         }
-        
     }
     
     
-    @IBAction func stagingProductInfoButtonTapped(_ sender: Any) {
+    func stagingProductInfoButtonTapped(_ sender: Any) {
         
         if let url = NSURL(string: "\(branchURL)viewProductInfo?productid=000802&promolaunchtext=You+tapped+the+View+Product+link%21\(promoParams)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
-        
-        stagingProductInfoButton.setTitleColor(UIColor.green, for: UIControlState.normal)
-        
     }
     
     @IBAction func stagingAutoReorderButtonTapped(_ sender: Any) {
@@ -175,9 +155,6 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
-        
-        stagingAutoReorderButton.setTitleColor(UIColor.green, for: UIControlState.normal)
-        
     }
     
     @IBAction func stagingAppOrderButtonTapped(_ sender: Any) {
@@ -186,9 +163,6 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
-        
-        stagingAppOrderButton.setTitleColor(UIColor.green, for: UIControlState.normal)
-        
     }
     
     @IBAction func stagingOrderHistoryDetailsButtonTapped(_ sender: Any) {
@@ -197,9 +171,6 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
-        
-        stagingOrderHistoryDetailsButton.setTitleColor(UIColor.green, for: UIControlState.normal)
-        
     }
     
     @IBAction func stagingAppLaunchButtonTapped(_ sender: Any) {
@@ -208,9 +179,6 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
-        
-        stagingAppLaunchButton.setTitleColor(UIColor.green, for: UIControlState.normal)
-        
     }
     
     //MARK: Delegates and Data Sources
