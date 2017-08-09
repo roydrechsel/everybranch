@@ -16,6 +16,7 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
     @IBOutlet weak var branchPicker: UIPickerView!
     @IBOutlet weak var launchButton: UIButton!
     @IBOutlet weak var invisibleLabel: UILabel!
+    @IBOutlet weak var borderLabel: UILabel!
     
     @IBOutlet weak var stagingPromoOnButton: UIButton!
     @IBOutlet weak var stagingPromoOffButton: UIButton!
@@ -36,7 +37,7 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
         
         stagingPromoOnButtonTapped(stagingPromoOnButton.isSelected = true)
         stagingValidOrdernoButtonTapped(stagingValidOrdernoButton.isSelected = true)
-        stagingCryptidButtonTapped(stagingCryptidButton.isSelected = true)
+        stagingTokenButtonTapped(stagingTokenButton.isSelected = true)
         
         stagingRadioPromoButtonController = SSRadioButtonsController(buttons: stagingPromoOnButton, stagingPromoOffButton)
         stagingRadioPromoButtonController?.delegate = self
@@ -52,6 +53,12 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
 
         branchPicker.dataSource = self
         branchPicker.delegate = self
+        
+        borderLabel.layer.borderColor = UIColor.lightGray.cgColor
+        borderLabel.layer.borderWidth = 1
+        
+        launchButton.layer.borderColor = UIColor.lightGray.cgColor
+        launchButton.layer.borderWidth = 2
     }
     
     func didSelectButton(selectedButton: UIButton?) {

@@ -15,6 +15,7 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
     @IBOutlet weak var prodBranchPicker: UIPickerView!
     @IBOutlet weak var prodLaunchButton: UIButton!
     @IBOutlet weak var invisibleLabel: UILabel!
+    @IBOutlet weak var prodBorderLabel: UILabel!
     
     @IBOutlet weak var prodPromoOnButton: UIButton!
     @IBOutlet weak var prodPromoOffButton: UIButton!
@@ -48,7 +49,7 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
         
         prodPromoOnButtonTapped(prodPromoOnButton.isSelected = true)
         prodValidOrdernoButtonTapped(prodValidOrdernoButton.isSelected = true)
-        prodCryptidButtonTapped(prodCryptidButton.isSelected = true)
+        prodTokenButtonTapped(prodTokenButton.isSelected = true)
         
         prodRadioPromoButtonController = SSRadioButtonsController(buttons: prodPromoOnButton, prodPromoOffButton)
         prodRadioPromoButtonController?.delegate = self
@@ -65,6 +66,12 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
         
         prodBranchPicker.dataSource = self
         prodBranchPicker.delegate = self
+        
+        prodBorderLabel.layer.borderColor = UIColor.lightGray.cgColor
+        prodBorderLabel.layer.borderWidth = 1
+        
+        prodLaunchButton.layer.borderColor = UIColor.lightGray.cgColor
+        prodLaunchButton.layer.borderWidth = 2
     }
     
     func didSelectButton(selectedButton: UIButton?) {
