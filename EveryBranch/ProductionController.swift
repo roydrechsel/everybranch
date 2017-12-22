@@ -23,20 +23,7 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
     @IBOutlet weak var prodInvalidOrdernoButton: UIButton!
     @IBOutlet weak var prodCryptidButton: UIButton!
     @IBOutlet weak var prodTokenButton: UIButton!
-    
-    
-    let branchURL = "http://link.1800contacts.com/"
-    var promoParams: String = ""
-    var prodAutoLoginParam: String = ""
-    var orderno: String = ""
-    
-    
-    var badToken: String = "applaunch?token=garbagegarbagegarbage"
-    
-    var prodToken: String = "&token=406E9762-D545-409E-BABB-6D265E05EA4D"
-    var prodCryptID: String = "&cryptid=B%2fP8J0RJE0WihD%2bRJ%2f6xSQIzVBjUXJ97eXBBCVEV1octB5dYjI%2f6WGoB406VXEmvk4bz0Waj5lAcGsAGI%2be%2fiE8mXx1zHpI1Kp3dPzKRm3UV6GHlcSX%2bBb20XlXbp9gjG4XPhRUJ%2bxXUgHJapQDj0d5yiK4QVsLvWF0qeKQng17uHz29At47jDVF9U7O6ayPRVhHu5qHXQgPpGhOrHA62IQa3a221P%2fyoTlUVDHaqYEhpUwW4qdPI5qrlh3JdBZRmd1BgQ%2btnVtbayJazv01Xi61AZrAFVs2hzkJ5PFLAcnYPJkcR%2bDckPqh0fQdeCg3hrTtWXUIWtJNWVIz2rdsWQ%3d%3d"
-    var prodOrderno: String = "&orderno=0091593038"
-    var prodBadOrderno: String = "&orderno=00"
+
     
     var prodRadioPromoButtonController: SSRadioButtonsController?
     var prodRadioOrdernoButtonController: SSRadioButtonsController?
@@ -74,6 +61,10 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
         prodLaunchButton.layer.borderWidth = 2
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     func didSelectButton(selectedButton: UIButton?) {
         NSLog(" \(selectedButton)")
     }
@@ -81,33 +72,33 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
     
     @IBAction func prodPromoOnButtonTapped(_ sender: Any) {
         
-        promoParams = "&promoid=testPromo&promoisreusable=true&promoexpdate=1586844727000&promoexpseconds=0"
+        Production.shared.promoParams = "&promoid=testPromo&promoisreusable=true&promoexpdate=1586844727000&promoexpseconds=0"
         
     }
     
     @IBAction func prodPromoOffButtonTapped(_ sender: Any) {
         
-        promoParams = ""
+        Production.shared.promoParams = ""
     }
     
     @IBAction func prodValidOrdernoButtonTapped(_ sender: Any) {
         
-        orderno = prodOrderno
+        Production.shared.orderno = Production.shared.prodOrderno
     }
     
     @IBAction func prodInvalidOrdernoButtonTapped(_ sender: Any) {
         
-        orderno = prodBadOrderno
+        Production.shared.orderno = Production.shared.prodBadOrderno
     }
     
     @IBAction func prodCryptidButtonTapped(_ sender: Any) {
         
-        prodAutoLoginParam = prodCryptID
+        Production.shared.prodAutoLoginParam = Production.shared.prodCryptID
     }
     
     @IBAction func prodTokenButtonTapped(_ sender: Any) {
         
-        prodAutoLoginParam = prodToken
+        Production.shared.prodAutoLoginParam = Production.shared.prodToken
     }
     
     @IBAction func prodLaunchButtonTapped(_ sender: Any) {
@@ -147,7 +138,7 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
     
     func productionProductInfoButtonTapped(_ sender: Any) {
         
-        if let url = NSURL(string: "\(branchURL)viewProductInfo?productid=000802&promolaunchtext=You+tapped+the+View+Product+link%21\(promoParams)") {
+        if let url = NSURL(string: "\(Production.shared.branchURL)viewProductInfo?productid=000802&promolaunchtext=You+tapped+the+View+Product+link%21\(Production.shared.promoParams)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
@@ -155,7 +146,7 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
     
     func productionAutoReorderButtonTapped(_ sender: Any) {
         
-        if let url = NSURL(string: "\(branchURL)autoreorderdetails?promolaunchtext=You+tapped+the+Auto-Reorder+link%21\(promoParams)&autoreorderid=92503\(prodAutoLoginParam)") {
+        if let url = NSURL(string: "\(Production.shared.branchURL)autoreorderdetails?promolaunchtext=You+tapped+the+Auto-Reorder+link%21\(Production.shared.promoParams)&autoreorderid=92503\(Production.shared.prodAutoLoginParam)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
@@ -163,7 +154,7 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
     
     func productionAppOrderButtonTapped(_ sender: Any) {
         
-        if let url = NSURL(string: "\(branchURL)apporder?promolaunchtext=You+tapped+the+App+Order+link%21\(promoParams)\(orderno)\(prodAutoLoginParam)") {
+        if let url = NSURL(string: "\(Production.shared.branchURL)apporder?promolaunchtext=You+tapped+the+App+Order+link%21\(Production.shared.promoParams)\(Production.shared.orderno)\(Production.shared.prodAutoLoginParam)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
@@ -171,7 +162,7 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
     
     func productionOrderHistoryDetailsButtonTapped(_ sender: Any) {
         
-        if let url = NSURL(string: "\(branchURL)vieworderhistorydetails?promolaunchtext=You+tapped+the+Order+History+Details+link%21\(promoParams)\(orderno)\(prodAutoLoginParam)") {
+        if let url = NSURL(string: "\(Production.shared.branchURL)vieworderhistorydetails?promolaunchtext=You+tapped+the+Order+History+Details+link%21\(Production.shared.promoParams)\(Production.shared.orderno)\(Production.shared.prodAutoLoginParam)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
@@ -179,7 +170,7 @@ class ProductionController: UIViewController, SSRadioButtonControllerDelegate, U
     
     func productionAppLaunchButtonTapped(_ sender: Any) {
         
-        if let url = NSURL(string: "\(branchURL)applaunch?promolaunchtext=You+tapped+the+App+Launch+link%21\(promoParams)") {
+        if let url = NSURL(string: "\(Production.shared.branchURL)applaunch?promolaunchtext=You+tapped+the+App+Launch+link%21\(Production.shared.promoParams)") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }

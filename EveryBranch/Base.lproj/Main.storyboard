@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4pU-ao-9vH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4pU-ao-9vH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -230,17 +230,6 @@
                                     <action selector="prodPromoOffButtonTapped:" destination="D9s-zN-VZq" eventType="touchUpInside" id="IW9-9h-Jag"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voA-i2-0O2">
-                                <rect key="frame" x="296" y="257" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Token">
-                                    <color key="titleColor" red="0.16602001699999999" green="0.72341295809999995" blue="0.1086983547" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="prodTokenButtonTapped:" destination="D9s-zN-VZq" eventType="touchUpInside" id="q3E-oM-cmF"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-Pi-cpl">
                                 <rect key="frame" x="0.0" y="328" width="375" height="171"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -313,6 +302,17 @@
                                 </state>
                                 <connections>
                                     <action selector="prodCryptidButtonTapped:" destination="D9s-zN-VZq" eventType="touchUpInside" id="9q6-cA-CHa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voA-i2-0O2">
+                                <rect key="frame" x="296" y="252" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Token">
+                                    <color key="titleColor" red="0.16602001699999999" green="0.72341295809999995" blue="0.1086983547" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="prodTokenButtonTapped:" destination="D9s-zN-VZq" eventType="touchUpInside" id="q3E-oM-cmF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -404,7 +404,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RN1-3K-x6q">
-                                <rect key="frame" x="288" y="285" width="71" height="30"/>
+                                <rect key="frame" x="289" y="285" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Cryptid">
@@ -473,6 +473,29 @@
                                     <action selector="stagingTokenButtonTapped:" destination="ZwH-hG-RXx" eventType="touchUpInside" id="tTI-mk-fET"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wH-1J-YHB">
+                                <rect key="frame" x="263" y="572" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Share this link"/>
+                                <connections>
+                                    <action selector="stagingShareSheetButtonTapped:" destination="ZwH-hG-RXx" eventType="touchUpInside" id="yLm-tH-Ui3"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g82-fl-fXu">
+                                <rect key="frame" x="34" y="502" width="326" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YW0-z4-Z0R">
+                                <rect key="frame" x="5" y="507" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -487,6 +510,7 @@
                         <outlet property="stagingPromoOffButton" destination="DbK-AV-lh0" id="1hV-BQ-BU7"/>
                         <outlet property="stagingPromoOnButton" destination="KaF-qe-5Mh" id="UWE-fw-VRG"/>
                         <outlet property="stagingTokenButton" destination="2jP-aF-h2E" id="TgC-AW-Ouy"/>
+                        <outlet property="stagingUrlTextField" destination="g82-fl-fXu" id="Spk-Es-IZ7"/>
                         <outlet property="stagingValidOrdernoButton" destination="Qfn-wr-O0c" id="e3J-hR-W8j"/>
                     </connections>
                 </viewController>
