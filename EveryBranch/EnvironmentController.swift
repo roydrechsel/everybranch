@@ -16,12 +16,14 @@ class EnvironmentController {
     var params = [Params]()
     
     
-    func staging(orderno: String, token: String, cryptID: String) {
+    func staging(orderno: String, token: String)
+    {
         
         
     }
     
-    func production(orderno: String, token: String, cryptID: String) {
+    func production(orderno: String, token: String)
+    {
         
         
     }

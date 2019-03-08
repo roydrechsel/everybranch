@@ -8,53 +8,76 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
-class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate
+{
+    
+    var container: NSPersistentContainer!
     
     static let sharedController = StagingController()
     
     @IBOutlet weak var branchPicker: UIPickerView!
     @IBOutlet weak var launchButton: UIButton!
-    @IBOutlet weak var invisibleLabel: UILabel!
     @IBOutlet weak var borderLabel: UILabel!
-    @IBOutlet weak var stagingUrlTextField: UITextField!
     
     @IBOutlet weak var stagingPromoOnButton: UIButton!
     @IBOutlet weak var stagingPromoOffButton: UIButton!
-    @IBOutlet weak var stagingValidOrdernoButton: UIButton!
-    @IBOutlet weak var stagingInvalidOrdernoButton: UIButton!
-    @IBOutlet weak var stagingCryptidButton: UIButton!
     @IBOutlet weak var stagingTokenButton: UIButton!
+    @IBOutlet weak var stagingNoTokenButton: UIButton!
+    @IBOutlet weak var stagingShareButton: UIButton!
     
     var radioButtonController: SSRadioButtonsController?
     var stagingRadioPromoButtonController: SSRadioButtonsController?
-    var stagingRadioOrdernoButtonController: SSRadioButtonsController?
-    var stagingRadioCryptidTokenButtonController: SSRadioButtonsController?
+    var stagingRadioTokenButtonController: SSRadioButtonsController?
     
     var currentUrlString: String? = ""
     var currentPickerSelection: String = ""
     var stagingShareableUrl: String = ""
     
-    var branchPickerData = ["Select link...", "Product Info", "Auto-Reorder", "App Order", "Order History Details", "App Launch"]
+    var branchPickerData = ["Select link...", "Product Info", "Auto-Reorder", "App Order", "Order History Details", "App Launch", "ExpressExam New Order"]
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
+        
+//        container = NSPersistentContainer(name: "EveryBranch")
+//        container.loadPersistentStores
+//            { (NSPersistentStoreDescription, error) in
+//                if let error = error
+//                {
+//                    print("Unresolved error \(error)")
+//                }
+//            }
+        
+//        func saveContext()
+//        {
+//            if container.viewContext.hasChanges
+//            {
+//                do
+//                {
+//                    try container.viewContext.save()
+//                }
+//                catch
+//                {
+//                    print("There was an issue saving")
+//                }
+//            }
+//        }
+        
+        stagingShareButton.contentMode = .center
+        stagingShareButton.imageView?.contentMode = .scaleAspectFit
         
         stagingPromoOnButtonTapped(stagingPromoOnButton.isSelected = true)
-        stagingValidOrdernoButtonTapped(stagingValidOrdernoButton.isSelected = true)
         stagingTokenButtonTapped(stagingTokenButton.isSelected = true)
         
         stagingRadioPromoButtonController = SSRadioButtonsController(buttons: stagingPromoOnButton, stagingPromoOffButton)
         stagingRadioPromoButtonController?.delegate = self
 //        stagingRadioPromoButtonController?.shouldLetDeSelect = true
         
-        stagingRadioOrdernoButtonController = SSRadioButtonsController(buttons: stagingValidOrdernoButton, stagingInvalidOrdernoButton)
-        stagingRadioOrdernoButtonController?.delegate = self
-//        stagingRadioOrdernoButtonController?.shouldLetDeSelect = true
-        
-        stagingRadioCryptidTokenButtonController = SSRadioButtonsController(buttons: stagingCryptidButton, stagingTokenButton)
-        stagingRadioCryptidTokenButtonController?.delegate = self
+        stagingRadioTokenButtonController = SSRadioButtonsController(buttons: stagingTokenButton, stagingNoTokenButton)
+        stagingRadioTokenButtonController?.delegate = self
 //        stagingRadioCryptidTokenButtonController?.shouldLetDeSelect = true
 
         branchPicker.dataSource = self
@@ -70,168 +93,179 @@ class StagingController: UIViewController, SSRadioButtonControllerDelegate, UIPi
 //        stagingUrlTextField.text = stagingUrlString
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool)
+    {
         
     }
     
-    func didSelectButton(selectedButton: UIButton?) {
-        NSLog(" \(selectedButton)")
+    func didSelectButton(selectedButton: UIButton?)
+    {
+        NSLog("\(selectedButton)")
     }
     
     
     
-    @IBAction func stagingShareSheetButtonTapped(_ sender: Any) {
-        
-        if currentPickerSelection == "Product Info" {
-            
-            stagingShareableUrl = "\(Staging.shared.branchURL)viewProductInfo?productid=000802&promolaunchtext=You+tapped+the+View+Product+link%21\(Staging.shared.promoParams)"
-        } else {
-            
-            if currentPickerSelection == "Auto-Reorder" {
-                
-                stagingShareableUrl = "\(Staging.shared.branchURL)autoreorderdetails?promolaunchtext=You+tapped+the+Auto-Reorder+link%21\(Staging.shared.promoParams)&autoreorderid=17799\(Staging.shared.stagingAutoLoginParam)"
-            } else {
-                
-                if currentPickerSelection == "App Order" {
-                    
-                    stagingShareableUrl = "\(Staging.shared.branchURL)apporder?promolaunchtext=You+tapped+the+App+Order+link%21\(Staging.shared.promoParams)\(Staging.shared.orderno)\(Staging.shared.stagingAutoLoginParam)"
-                } else {
-                    
-                    if currentPickerSelection == "Order History Details" {
-                        
-                        stagingShareableUrl = "\(Staging.shared.branchURL)vieworderhistorydetails?promolaunchtext=You+tapped+the+Order+History+Details+link%21\(Staging.shared.promoParams)\(Staging.shared.orderno)\(Staging.shared.stagingAutoLoginParam)"
-                    } else {
-                        
-                        if currentPickerSelection == "App Launch" {
-                            
-                            stagingShareableUrl = "\(Staging.shared.branchURL)applaunch?promolaunchtext=You+tapped+the+App+Launch+link%21\(Staging.shared.promoParams)"
-                        }
-                    }
-                }
-            }
+    @IBAction func stagingShareSheetButtonTapped(_ sender: Any)
+    {
+        switch currentPickerSelection
+        {
+        case "Product Info":
+            stagingShareableUrl = "\(Staging.shared.stagingBranchURL)viewProductInfo?productid=000802&promolaunchtext=You+tapped+the+View+Product+link%21\(Staging.shared.stagingPromoParams)"
+        case "Auto-Reorder":
+            stagingShareableUrl = "\(Staging.shared.stagingBranchURL)autoreorderdetails?promolaunchtext=You+tapped+the+Auto-Reorder+link%21\(Staging.shared.stagingPromoParams)&autoreorderid=17799\(Staging.shared.stagingAutoLoginParam)"
+        case "App Order":
+            stagingShareableUrl = "\(Staging.shared.stagingBranchURL)apporder?promolaunchtext=You+tapped+the+App+Order+link%21\(Staging.shared.stagingPromoParams)\(Staging.shared.stagingOrderno)\(Staging.shared.stagingAutoLoginParam)"
+        case "Order History Details":
+            stagingShareableUrl = "\(Staging.shared.stagingBranchURL)vieworderhistorydetails?promolaunchtext=You+tapped+the+Order+History+Details+link%21\(Staging.shared.stagingPromoParams)\(Staging.shared.stagingOrderno)\(Staging.shared.stagingAutoLoginParam)"
+        case "App Launch":
+            stagingShareableUrl = "\(Staging.shared.stagingBranchURL)applaunch?promolaunchtext=You+tapped+the+App+Launch+link%21\(Staging.shared.stagingPromoParams)"
+        case "ExpressExam New Order":
+            stagingShareableUrl = "\(Staging.shared.stagingBranchURL)expressexamneworder?promolaunchtext=You+tapped+the+App+Launch+link%21\(Staging.shared.stagingPromoParams)"
+        default:
+            break
         }
         
-        if let myWebsite = NSURL(string: stagingShareableUrl) {
+        if let myWebsite = NSURL(string: stagingShareableUrl)
+        {
             let objectsToShare = [myWebsite] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
-            //New Excluded Activities Code
-//            activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
-            //
+            activityVC.excludedActivityTypes = [UIActivityType.init(rawValue: "com.apple.reminders.RemindersEditorExtension"), UIActivityType.addToReadingList]
             
             activityVC.popoverPresentationController?.sourceView = sender as? UIView
             self.present(activityVC, animated: true, completion: nil)
+            
         }
     }
-    
-    @IBAction func stagingPromoOnButtonTapped(_ sender: Any) {
         
-        Staging.shared.promoParams = "&promoid=testPromo&promoisreusable=true&promoexpdate=1586844727000&promoexpseconds=0"
+    
+    
+    @IBAction func stagingPromoOnButtonTapped(_ sender: Any)
+    {
+        
+        Staging.shared.stagingPromoParams = "&promoid=testPromo&promoisreusable=true&promoexpdate=1586844727000&promoexpseconds=0"
     }
     
-    @IBAction func stagingPromoOffButtonTapped(_ sender: Any) {
+    @IBAction func stagingPromoOffButtonTapped(_ sender: Any)
+    {
         
-        Staging.shared.promoParams = ""
+        Staging.shared.stagingPromoParams = ""
     }
     
-    @IBAction func stagingValidOrdernoButtonTapped(_ sender: Any) {
-        
-        Staging.shared.orderno = Staging.shared.stagingOrderno
-    }
-    
-    @IBAction func stagingInvalidOrdernoButtonTapped(_ sender: Any) {
-        
-        Staging.shared.orderno = Staging.shared.stagingBadOrderno
-    }
-    
-    @IBAction func stagingCryptidButtonTapped(_ sender: Any) {
-        
-        Staging.shared.stagingAutoLoginParam = Staging.shared.stagingCryptID
-    }
-    
-    @IBAction func stagingTokenButtonTapped(_ sender: Any) {
-        
+    @IBAction func stagingTokenButtonTapped(_ sender: Any)
+    {
         Staging.shared.stagingAutoLoginParam = Staging.shared.stagingToken
     }
     
+    @IBAction func stagingNoTokenButtonTapped(_ sender: Any)
+    {
+        Staging.shared.stagingAutoLoginParam = ""
+    }
     
     
-    @IBAction func launchButtonTapped(_ sender: Any) {
-        
-        if currentPickerSelection == "Product Info" {
-            
-            stagingProductInfoButtonTapped((Any).self)
-        } else {
-            
-            if currentPickerSelection == "Auto-Reorder" {
-                
+    
+    @IBAction func launchButtonTapped(_ sender: Any)
+    {
+        switch currentPickerSelection
+        {
+            case "Product Info":
+                stagingProductInfoButtonTapped((Any).self)
+            case "Auto-Reorder":
                 stagingAutoReorderButtonTapped((Any).self)
-            } else {
-                
-                if currentPickerSelection == "App Order" {
-                    
-                    stagingAppOrderButtonTapped((Any).self)
-                } else {
-                    
-                    if currentPickerSelection == "Order History Details" {
-                        
-                        stagingOrderHistoryDetailsButtonTapped((Any).self)
-                    } else {
-                        
-                        if currentPickerSelection == "App Launch" {
-                            
-                            stagingAppLaunchButtonTapped((Any).self)
-                        }
-                    }
-                }
-            }
+            case "App Order":
+                stagingAppOrderButtonTapped((Any).self)
+            case "Order History Details":
+                stagingOrderHistoryDetailsButtonTapped((Any).self)
+            case "App Launch":
+                stagingAppLaunchButtonTapped((Any).self)
+            case "ExpressExam New Order":
+            stagingExpressExamNewOrderButtonTapped((Any).self)
+            default:
+                break
+        }
+    }
+    // Staging.shared.
+    
+    func stagingProductInfoButtonTapped(_ sender: Any)
+    {
+        if let url = NSURL(string: "\(Staging.shared.stagingBranchURL)viewProductInfo?productid=000802&promolaunchtext=You+tapped+the+View+Product+link%21\(Staging.shared.stagingPromoParams)")
+        {
+            
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            
+            let urlString = url.absoluteString
+            StagingController.sharedController.currentUrlString = urlString
+            //            currentURL = urlString
         }
     }
     
-    
-    func stagingProductInfoButtonTapped(_ sender: Any) {
-        
-        Staging.shared.stagingViewProductInfoUrl()
+    func stagingAutoReorderButtonTapped(_ sender: Any)
+    {
+        if let url = NSURL(string: "\(Staging.shared.stagingBranchURL)autoreorderdetails?promolaunchtext=You+tapped+the+Auto-Reorder+link%21\(Staging.shared.stagingPromoParams)&autoreorderid=17799\(Staging.shared.stagingAutoLoginParam)")
+        {
+            
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
     }
     
-    func stagingAutoReorderButtonTapped(_ sender: Any) {
-        
-        Staging.shared.stagingAutoReorderUrl()
+    func stagingAppOrderButtonTapped(_ sender: Any)
+    {
+        if let url = NSURL(string: "\(Staging.shared.stagingBranchURL)apporder?promolaunchtext=You+tapped+the+App+Order+link%21\(Staging.shared.stagingPromoParams)\(Staging.shared.stagingOrderno)\(Staging.shared.stagingAutoLoginParam)")
+        {
+            
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
     }
     
-    func stagingAppOrderButtonTapped(_ sender: Any) {
-        
-        Staging.shared.stagingAppOrderUrl()
+    func stagingOrderHistoryDetailsButtonTapped(_ sender: Any)
+    {
+        if let url = NSURL(string: "\(Staging.shared.stagingBranchURL)vieworderhistorydetails?promolaunchtext=You+tapped+the+Order+History+Details+link%21\(Staging.shared.stagingPromoParams)\(Staging.shared.stagingOrderno)\(Staging.shared.stagingAutoLoginParam)")
+        {
+            
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
     }
     
-    func stagingOrderHistoryDetailsButtonTapped(_ sender: Any) {
-        
-        Staging.shared.stagingOrderHistoryDetailsUrl()
+    func stagingAppLaunchButtonTapped(_ sender: Any)
+    {
+        if let url = NSURL(string: "\(Staging.shared.stagingBranchURL)applaunch?promolaunchtext=You+tapped+the+App+Launch+link%21\(Staging.shared.stagingPromoParams)")
+        {
+            
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
     }
     
-    func stagingAppLaunchButtonTapped(_ sender: Any) {
-        
-        Staging.shared.stagingAppLaunchUrl()
+    func stagingExpressExamNewOrderButtonTapped(_ sender: Any)
+    {
+        if let url = NSURL(string: "\(Staging.shared.stagingBranchURL)expressexamneworder?promolaunchtext=You+tapped+the+Express+Exam+New+Order+link%21\(Staging.shared.stagingPromoParams)")
+        {
+            
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
     }
     
     //MARK: Delegates and Data Sources
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    {
         
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
         
         return branchPickerData.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
         
         return branchPickerData[row]
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
         
         currentPickerSelection = branchPickerData[row]
     }

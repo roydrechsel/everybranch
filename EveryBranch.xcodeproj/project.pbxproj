@@ -7,22 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49D0CF1C22318F3800A66DCB /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49D0CF1A22318F3800A66DCB /* CoreDataModel.xcdatamodeld */; };
+		49ECC4BF21FBD00A003FA714 /* Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ECC4BE21FBD00A003FA714 /* Params.swift */; };
+		49ECC4C321FBD061003FA714 /* ScrollingTabBarUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956A09D21FBCFDA0010E36C /* ScrollingTabBarUtils.swift */; };
+		49ECC4C421FBD061003FA714 /* EveryBranchTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956A09C21FBCFD90010E36C /* EveryBranchTabBarController.swift */; };
 		542AC3B91ED4EC0E00FFE329 /* EnvironmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC3B81ED4EC0E00FFE329 /* EnvironmentController.swift */; };
 		543487561EA0341F002D6685 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543487551EA0341F002D6685 /* AppDelegate.swift */; };
-		543487581EA0341F002D6685 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543487571EA0341F002D6685 /* ViewController.swift */; };
 		5434875B1EA0341F002D6685 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 543487591EA0341F002D6685 /* Main.storyboard */; };
 		5434875D1EA0341F002D6685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5434875C1EA0341F002D6685 /* Assets.xcassets */; };
 		543487601EA0341F002D6685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5434875E1EA0341F002D6685 /* LaunchScreen.storyboard */; };
 		5434876B1EA03420002D6685 /* EveryBranchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434876A1EA03420002D6685 /* EveryBranchUITests.swift */; };
-		546ABB981EC3622700C82BA4 /* Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546ABB971EC3622700C82BA4 /* Params.swift */; };
 		54753BDF1F9EA36E0083C627 /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54753BDD1F9EA36E0083C627 /* SSRadioButtonsController.swift */; };
 		54753BE01F9EA36E0083C627 /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54753BDE1F9EA36E0083C627 /* SSRadioButton.swift */; };
 		549AD3661F030E8C00A5ED95 /* StagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AD3651F030E8C00A5ED95 /* StagingController.swift */; };
 		549AD3681F030E9500A5ED95 /* ProductionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AD3671F030E9500A5ED95 /* ProductionController.swift */; };
-		54A2B7C91F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A2B7C81F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift */; };
-		54A2B7CB1F3A7B2700D07CFF /* SongRightTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A2B7CA1F3A7B2700D07CFF /* SongRightTabBarController.swift */; };
 		54E68CCA1FEC892E00DC54BF /* Staging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E68CC91FEC892E00DC54BF /* Staging.swift */; };
 		54E68CCC1FEC893900DC54BF /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E68CCB1FEC893900DC54BF /* Production.swift */; };
+		54E68CCE1FED84E000DC54BF /* URLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E68CCD1FED84E000DC54BF /* URLController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4956A09C21FBCFD90010E36C /* EveryBranchTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryBranchTabBarController.swift; sourceTree = "<group>"; };
+		4956A09D21FBCFDA0010E36C /* ScrollingTabBarUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScrollingTabBarUtils.swift; path = Controllers/ScrollingTabBarUtils.swift; sourceTree = "<group>"; };
+		49D0CF1B22318F3800A66DCB /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		49ECC4BE21FBD00A003FA714 /* Params.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Params.swift; sourceTree = "<group>"; };
 		542AC3B81ED4EC0E00FFE329 /* EnvironmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentController.swift; sourceTree = "<group>"; };
 		543487521EA0341F002D6685 /* EveryBranch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryBranch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		543487551EA0341F002D6685 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		543487571EA0341F002D6685 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5434875A1EA0341F002D6685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5434875C1EA0341F002D6685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5434875F1EA0341F002D6685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,15 +51,13 @@
 		543487661EA03420002D6685 /* EveryBranchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EveryBranchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5434876A1EA03420002D6685 /* EveryBranchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryBranchUITests.swift; sourceTree = "<group>"; };
 		5434876C1EA03420002D6685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		546ABB971EC3622700C82BA4 /* Params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Params.swift; sourceTree = "<group>"; };
 		54753BDD1F9EA36E0083C627 /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
 		54753BDE1F9EA36E0083C627 /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
 		549AD3651F030E8C00A5ED95 /* StagingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StagingController.swift; sourceTree = "<group>"; };
 		549AD3671F030E9500A5ED95 /* ProductionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionController.swift; sourceTree = "<group>"; };
-		54A2B7C81F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollingTabBarUtils.swift; path = "../../DevMountain/iOSScrollingTabBarAnimation-master/ScrollingTabBarDemo/ScrollingTabBarUtils.swift"; sourceTree = "<group>"; };
-		54A2B7CA1F3A7B2700D07CFF /* SongRightTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongRightTabBarController.swift; path = ../../DevMountain/SongRight/SongRightTabBarController.swift; sourceTree = "<group>"; };
 		54E68CC91FEC892E00DC54BF /* Staging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staging.swift; sourceTree = "<group>"; };
 		54E68CCB1FEC893900DC54BF /* Production.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
+		54E68CCD1FED84E000DC54BF /* URLController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,17 +100,17 @@
 		543487541EA0341F002D6685 /* EveryBranch */ = {
 			isa = PBXGroup;
 			children = (
-				543487551EA0341F002D6685 /* AppDelegate.swift */,
 				54E68CC91FEC892E00DC54BF /* Staging.swift */,
 				54E68CCB1FEC893900DC54BF /* Production.swift */,
+				49ECC4BE21FBD00A003FA714 /* Params.swift */,
 				549AD3651F030E8C00A5ED95 /* StagingController.swift */,
 				549AD3671F030E9500A5ED95 /* ProductionController.swift */,
+				54E68CCD1FED84E000DC54BF /* URLController.swift */,
+				4956A09C21FBCFD90010E36C /* EveryBranchTabBarController.swift */,
 				54753BDE1F9EA36E0083C627 /* SSRadioButton.swift */,
 				54753BDD1F9EA36E0083C627 /* SSRadioButtonsController.swift */,
-				54A2B7C81F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift */,
-				54A2B7CA1F3A7B2700D07CFF /* SongRightTabBarController.swift */,
-				546ABB971EC3622700C82BA4 /* Params.swift */,
-				543487571EA0341F002D6685 /* ViewController.swift */,
+				4956A09D21FBCFDA0010E36C /* ScrollingTabBarUtils.swift */,
+				543487551EA0341F002D6685 /* AppDelegate.swift */,
 				542AC3B81ED4EC0E00FFE329 /* EnvironmentController.swift */,
 			);
 			path = EveryBranch;
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				543487591EA0341F002D6685 /* Main.storyboard */,
+				49D0CF1A22318F3800A66DCB /* CoreDataModel.xcdatamodeld */,
 				5434875C1EA0341F002D6685 /* Assets.xcassets */,
 				5434875E1EA0341F002D6685 /* LaunchScreen.storyboard */,
 				543487611EA0341F002D6685 /* Info.plist */,
@@ -185,7 +188,7 @@
 				TargetAttributes = {
 					543487511EA0341F002D6685 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = Q7ZY7HDZF4;
+						DevelopmentTeam = DWJZ6CZ6L6;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
@@ -243,15 +246,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				549AD3681F030E9500A5ED95 /* ProductionController.swift in Sources */,
-				546ABB981EC3622700C82BA4 /* Params.swift in Sources */,
 				54E68CCC1FEC893900DC54BF /* Production.swift in Sources */,
-				54A2B7C91F3A7B1E00D07CFF /* ScrollingTabBarUtils.swift in Sources */,
-				543487581EA0341F002D6685 /* ViewController.swift in Sources */,
+				49ECC4BF21FBD00A003FA714 /* Params.swift in Sources */,
+				49D0CF1C22318F3800A66DCB /* CoreDataModel.xcdatamodeld in Sources */,
+				49ECC4C421FBD061003FA714 /* EveryBranchTabBarController.swift in Sources */,
 				54753BDF1F9EA36E0083C627 /* SSRadioButtonsController.swift in Sources */,
 				543487561EA0341F002D6685 /* AppDelegate.swift in Sources */,
+				49ECC4C321FBD061003FA714 /* ScrollingTabBarUtils.swift in Sources */,
 				542AC3B91ED4EC0E00FFE329 /* EnvironmentController.swift in Sources */,
 				549AD3661F030E8C00A5ED95 /* StagingController.swift in Sources */,
-				54A2B7CB1F3A7B2700D07CFF /* SongRightTabBarController.swift in Sources */,
+				54E68CCE1FED84E000DC54BF /* URLController.swift in Sources */,
 				54E68CCA1FEC892E00DC54BF /* Staging.swift in Sources */,
 				54753BE01F9EA36E0083C627 /* SSRadioButton.swift in Sources */,
 			);
@@ -340,6 +344,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -381,6 +386,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -392,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = Q7ZY7HDZF4;
+				DEVELOPMENT_TEAM = DWJZ6CZ6L6;
 				INFOPLIST_FILE = EveryBranch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roydrechsel.EveryBranch;
@@ -408,7 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = Q7ZY7HDZF4;
+				DEVELOPMENT_TEAM = DWJZ6CZ6L6;
 				INFOPLIST_FILE = EveryBranch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roydrechsel.EveryBranch;
@@ -479,6 +485,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		49D0CF1A22318F3800A66DCB /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				49D0CF1B22318F3800A66DCB /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 49D0CF1B22318F3800A66DCB /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5434874A1EA0341F002D6685 /* Project object */;
 }

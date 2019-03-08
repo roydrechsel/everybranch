@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="EveryBranch" representedClassName="EveryBranch" syncable="YES" codeGenerationType="class">
+        <attribute name="orderno" attributeType="String" syncable="YES"/>
+        <attribute name="prodAutoLoginParam" attributeType="String" syncable="YES"/>
+        <attribute name="prodBadOrderno" attributeType="String" syncable="YES"/>
+        <attribute name="prodBadToken" attributeType="String" syncable="YES"/>
+        <attribute name="prodBranchURL" attributeType="String" syncable="YES"/>
+        <attribute name="prodOrderno" attributeType="String" syncable="YES"/>
+        <attribute name="prodPromoParams" attributeType="String" syncable="YES"/>
+        <attribute name="prodToken" attributeType="String" syncable="YES"/>
+        <attribute name="stagingAutoLoginParam" attributeType="String" syncable="YES"/>
+        <attribute name="stagingBadToken" attributeType="String" syncable="YES"/>
+        <attribute name="stagingBranchURL" attributeType="String" syncable="YES"/>
+        <attribute name="stagingCurrentURL" attributeType="String" syncable="YES"/>
+        <attribute name="stagingOrderno" attributeType="String" syncable="YES"/>
+        <attribute name="stagingPromoParams" attributeType="String" syncable="YES"/>
+        <attribute name="stagingToken" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="EveryBranch" positionX="-63" positionY="-18" width="128" height="270"/>
+    </elements>
+</model>

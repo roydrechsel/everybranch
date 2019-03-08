@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Production Black Circle.jpg",
+      "filename" : "Production Black Circle 25x25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Production Black Circle 50x50.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Production Black Circle.png",
       "scale" : "3x"
     }
   ],

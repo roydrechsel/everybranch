@@ -12,12 +12,10 @@ class Params {
     
     var orderno: String?
     var token: String?
-    var cryptID: String?
     
-    init(orderno: String?, token: String?, cryptID: String?) {
+    init(orderno: String?, token: String?) {
         
         self.orderno = orderno
         self.token = token
-        self.cryptID = cryptID
     }
 }
